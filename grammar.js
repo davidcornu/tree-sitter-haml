@@ -12,6 +12,7 @@ module.exports = grammar({
           $.ruby_block_output,
           $.ruby_block_run,
           $.ruby_interpolation,
+          $.doctype,
         ),
       ),
     tag: ($) =>
@@ -68,5 +69,6 @@ module.exports = grammar({
     ruby_interpolation: ($) => seq("#", $.ruby_expression),
     ruby_expression: () => /\{[^}]*\}/,
     _html_identifier: () => /[-:\w/.]+/,
+    doctype: ($) => seq("!!!", optional($._text), $._newline),
   },
 });

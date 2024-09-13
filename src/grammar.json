@@ -21,6 +21,10 @@
           {
             "type": "SYMBOL",
             "name": "ruby_interpolation"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "doctype"
           }
         ]
       }
@@ -470,6 +474,31 @@
     "_html_identifier": {
       "type": "PATTERN",
       "value": "[-:\\w/.]+"
+    },
+    "doctype": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "!!!"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_text"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        }
+      ]
     }
   },
   "extras": [
