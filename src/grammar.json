@@ -2,32 +2,45 @@
   "name": "haml",
   "rules": {
     "source_file": {
-      "type": "REPEAT",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "tag"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "ruby_block_output"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "ruby_block_run"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "ruby_interpolation"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "doctype"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "doctype"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "tag"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "ruby_block_output"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "ruby_block_run"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "ruby_interpolation"
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     "tag": {
       "type": "SEQ",
